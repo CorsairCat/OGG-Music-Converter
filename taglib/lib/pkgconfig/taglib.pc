@@ -1,0 +1,11 @@
+prefix=C:/Libraries/taglib
+exec_prefix=C:/Libraries/taglib
+libdir=C:/Libraries/taglib/lib
+includedir=C:/Libraries/taglib/include
+
+Name: TagLib
+Description: Audio meta-data library
+Requires: 
+Version: 1.12
+Libs: -L${libdir} -ltag 
+Cflags: -I${includedir} -I${includedir}/taglib
