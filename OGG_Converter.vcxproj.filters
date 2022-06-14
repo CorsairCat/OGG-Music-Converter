@@ -24,6 +24,12 @@
     <ClCompile Include="src\cmdExecuteProxy.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\luaCoder.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\musicMetadata.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">

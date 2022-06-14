@@ -1,38 +1,28 @@
 #include "include/musicMetadata.h"
+#include "../taglib/include/taglib/taglib.h"
+#include "../taglib/include/taglib/fileref.h"
+#include "include/formatConvert.h"
 
 int storeMetaData(struct mp3Metadata* tempStruct, TagLib::FileRef file)
 {
-    std::string temp_tag_string;
-    temp_tag_string = file.tag()->artist();
-    if (temp_tag_string != NULL)
+    tempStruct->artist = file.tag()->artist().toCString(true);
+    if (tempStruct->artist == "")
     {
-        tempStruct->artist = temp_tag_string.toCString(true);
+        tempStruct->artist = ANSItoUTF8("unknow");
     }
-    else
-    {
-        tempStruct->artist = u8"unknow";
-    }
-    temp_tag_string = file.tag()->title();
-    if (temp_tag_string != NULL)
-    {
-        tempStruct->music_name = temp_tag_string.toCString(true);
-    }
-    else
+    tempStruct->music_name = file.tag()->title().toCString(true);
+    if (tempStruct->music_name == "")
     {
         tempStruct->music_name = tempStruct->file_name;
     }
-    temp_tag_string = file.tag()->album();
-    if (temp_tag_string != NULL)
+    tempStruct->album = file.tag()->album().toCString(true);
+    if (tempStruct->album == "")
     {
-        tempStruct->album = temp_tag_string.toCString(true);
+        tempStruct->album = ANSItoUTF8("unknow");
     }
-    else
+    if (file.tag()->year() != 0)
     {
-        tempStruct->album = u8"unknow";
-    }
-    if (file.tag()->year != 0)
-    {
-        tempStruct->year = file.tag()->year;
+        tempStruct->year = file.tag()->year();
     }
     else
     {

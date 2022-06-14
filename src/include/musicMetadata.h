@@ -1,3 +1,6 @@
+#ifndef _MUSIC_METADATA_H
+#define _MUSIC_METADATA_H
+
 #include <string>
 #include "../taglib/include/taglib/taglib.h"
 #include "../taglib/include/taglib/fileref.h"
@@ -20,3 +23,5 @@ struct albumData
 };
 
 int storeMetaData(struct mp3Metadata* tempStruct, TagLib::FileRef file);
+
+#endif
