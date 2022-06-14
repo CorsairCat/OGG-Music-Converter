@@ -28,14 +28,14 @@ int writePlayListConfig(struct mp3Metadata *tempStruct, int isSignal)
     switch (isSignal)
     {
     case 1:
-        outfile.open("..\\Output\\MusicPlayerConfig.lua", std::ios::trunc);
+        outfile.open("Output\\MusicPlayerConfig.lua", std::ios::trunc);
         outfile << ANSItoUTF8("MusicPlayerList = {}") << std::endl;
         break;
     case 2:
-        outfile.open("..\\Output\\MusicPlayerConfig.lua", std::ios::app);
+        outfile.open("Output\\MusicPlayerConfig.lua", std::ios::app);
         break;
     default:
-        outfile.open("..\\Output\\MusicPlayerConfig.lua", std::ios::app);
+        outfile.open("Output\\MusicPlayerConfig.lua", std::ios::app);
         std::string length_str = std::to_string(tempStruct->length);
         outfile << ANSItoUTF8("MusicPlayerList[#MusicPlayerList+1] = {\"Mp3Player/") << tempStruct->file_name << "\",\"" << tempStruct->music_name << "\",\"" << tempStruct->artist << "\"," << ANSItoUTF8(length_str.c_str()) << "}" << std::endl;
         break;

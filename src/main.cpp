@@ -42,7 +42,7 @@ int main()
         convert_command = "mkdir Output\\Sounds\\MP3Player\\sdef";
         ExecuteCmd(convert_command.c_str(), strList);
         writePlayListConfig(&metadata_store, 1);
-
+        
         do {
             std::string temp(c_file.name);
             file_path_buffer = folder_path + temp;
