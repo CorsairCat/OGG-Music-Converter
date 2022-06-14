@@ -2,8 +2,8 @@
 
 
 [![release](https://img.shields.io/github/v/release/corsaircat/ogg-music-converter?include_prereleases)](RELEASE)
-[![license](https://img.shields.io/github/license/corsaircat/OGG-Music-Converter)](LICENSE)
-A music converter for an DCS World avionic based in-game virtual media player;
+[![license](https://img.shields.io/github/license/corsaircat/OGG-Music-Converter)](LICENSE)<br>
+A music converter for an DCS World avionic based in-game virtual media player;<br>
 This software uses libraries from the FFmpeg project under the LGPLv2.1
 
 ## Table of Contents
@@ -48,13 +48,13 @@ Serval Libiaries are used to collect the media metadata and convert the media in
 ## Contributing
 Feel free to dive in! [Open an issue](https://github.com/corsaircat/ogg-music-converter/issues/new) or submit PRs.
 ### Contributors
-<a href="https://github.com/CorsairCat">CorsairCat</a>
+<a href="https://github.com/CorsairCat">CorsairCat</a><br>
 <a href="https://github.com/wangmiaowj">wangmiaowj</a>
 
 ## License
 
-This software uses code of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a> and its source can be downloaded <a href=https://github.com/CorsairCat/OGG-Music-Converter>here</a>
-FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project.
-This software uses code of <a href=https://taglib.org>TagLib</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a> and its source can be downloaded <a href=https://github.com/CorsairCat/OGG-Music-Converter>here</a>
-TagLib is a library for reading and editing the metadata of several popular audio formats. 
++ This software uses code of <a href=http://ffmpeg.org>FFmpeg</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a> and its source can be downloaded <a href=https://github.com/CorsairCat/OGG-Music-Converter>here</a>
++ FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project.
++ This software uses code of <a href=https://taglib.org>TagLib</a> licensed under the <a href=http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html>LGPLv2.1</a> and its source can be downloaded <a href=https://github.com/CorsairCat/OGG-Music-Converter>here</a>
++ TagLib is a library for reading and editing the metadata of several popular audio formats. 
 [LGPL2.1 © Corsaircat](LICENSE)
