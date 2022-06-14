@@ -37,9 +37,9 @@ int main()
     {
         //printf( "Listing of .mp3 files:\n\r" );
         //create folder
-        convert_command = "mkdir Output\\Sounds\\MP3Player\\Effect";
+        convert_command = "mkdir Output\\Sounds\\Effects\\MP3Player";
         ExecuteCmd(convert_command.c_str(), strList);
-        convert_command = "mkdir Output\\Sounds\\MP3Player\\sdef";
+        convert_command = "mkdir Output\\Sounds\\sdef\\MP3Player";
         ExecuteCmd(convert_command.c_str(), strList);
         writePlayListConfig(&metadata_store, 1);
         
@@ -60,10 +60,10 @@ int main()
                 std::cout << "Music Title is " << UTF8toANSI(f.tag()->title().toCString(true)) << std::endl;
                 std::cout << "Artist is " << UTF8toANSI(f.tag()->artist().toCString(true)) << std::endl;
                 std::cout << "Music Length is " << f.audioProperties()->lengthInSeconds() << " Sec" << std::endl;
-                sdef_folder_path = "Output\\Sounds\\MP3Player\\sdef\\" + temp;
+                sdef_folder_path = "Output\\Sounds\\sdef\\MP3Player\\" + temp;
                 writeSdefConfig(sdef_folder_path.c_str(), &metadata_store);
                 // start using the cmd to execute the ffmpeg here
-                convert_command = "\"bin\\ffmpeg\" -i " + folder_path + temp + " -ar 48000 -vn -c:a libvorbis output/Sounds/MP3Player/Effect/";
+                convert_command = "\"bin\\ffmpeg\" -i " + folder_path + temp + " -ar 48000 -vn -c:a libvorbis output/Sounds/Effects/MP3Player/";
                 convert_command = convert_command + temp.replace(temp.find(".mp3"), 4, ".ogg");
                 std::cout << "Execute Command: " << convert_command << std::endl;
                 ExecuteCmd(convert_command.c_str(), strList);

@@ -12,7 +12,7 @@ int writeSdefConfig(const char* filepath, struct mp3Metadata *tempStruct)
     outfile.open(file_path_str.replace(file_path_str.find(".mp3"), 4, ".sdef"));
     
     // write to the file
-    outfile << ANSItoUTF8("wave = \"MP3Player/") << tempStruct->file_name;
+    outfile << ANSItoUTF8("wave = \"Effects/MP3Player/") << tempStruct->file_name;
 
     outfile << ANSItoUTF8("\" \n\rinner_radius = 100 \n\router_radius = 100 \n\rposition = {0.0, 0.0, 0.0} \n\rgain = 1");
     
