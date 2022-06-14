@@ -20,9 +20,11 @@ int main()
     std::string finder_path = folder_path + "*.mp3";
     std::string file_path_buffer;
     std::string convert_command;
+    TagLib::String temp_tag_string;
     std::list<std::string> strList;
     struct _finddata_t c_file;
     intptr_t hFile;
+    struct mp3Metadata metadata_store;
 
     // Find first .mp3 file in current directory
     if( (hFile = _findfirst( finder_path.c_str(), &c_file )) == -1L )
@@ -31,9 +33,9 @@ int main()
     {
         printf( "Listing of .mp3 files:\n\r" );
         //create folder
-        convert_command = "mkdir ..\\Output\\Sounds\\Effect";
+        convert_command = "mkdir ..\\Output\\Sounds\\MP3Player\\Effect";
         ExecuteCmd(convert_command.c_str(), strList);
-        convert_command = "mkdir ..\\Output\\Sounds\\sdef";
+        convert_command = "mkdir ..\\Output\\Sounds\\MP3Player\\sdef";
         ExecuteCmd(convert_command.c_str(), strList);
 
         do {
@@ -43,7 +45,13 @@ int main()
             printf( " %-12s %9ld\n", c_file.name, c_file.size);
             // use taglib to extract the files
             TagLib::FileRef f(file_path_buffer.c_str());
-            TagLib::String artist = f.tag()->artist();
+            if (f != NULL)
+            {
+                metadata_store.file_name = ANSItoUTF8(c_file.name.c_str());
+                //storeMetaData(&metadata_store, f);
+            }
+            std::cout << "Music Length is " << file.audioProperties()->lengthInSeconds() << " Sec" << std::endl;
+                        
             // output the result file using utf8
             std::cout << "Music Title is " << UTF8toANSI(f.tag()->title().toCString(true)) << std::endl;
             std::cout << "Artist is " << UTF8toANSI(artist.toCString(true)) << std::endl;

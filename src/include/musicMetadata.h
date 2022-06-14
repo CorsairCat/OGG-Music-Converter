@@ -1,4 +1,6 @@
 #include <string>
+#include "../taglib/include/taglib/taglib.h"
+#include "../taglib/include/taglib/fileref.h"
 
 struct mp3Metadata
 {
@@ -16,3 +18,5 @@ struct albumData
     std::string cover_path;
     std::string album_artist;
 };
+
+int storeMetaData(struct mp3Metadata* tempStruct, TagLib::FileRef file);
