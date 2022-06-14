@@ -1,6 +1,11 @@
-#include "formatConvert.h"
+#include "include/formatConvert.h"
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <Windows.h>
+#include <io.h>
 
-std::string string_to_hex(const std::string& input)
+std::string string_to_hex(const std::string &input)
 {
     static const char hex_digits[] = "0123456789ABCDEF";
 
@@ -14,18 +19,47 @@ std::string string_to_hex(const std::string& input)
     return output;
 }
 
-std::string UTF8toANSI(const char* strUTF8)
+std::string UTF8toANSI(const char *strUTF8)
 {
     int nLen = MultiByteToWideChar(CP_UTF8, NULL, strUTF8, -1, NULL, NULL);
-    WCHAR * wszBuffer = new WCHAR[nLen + 1];
+    WCHAR *wszBuffer = new WCHAR[nLen + 1];
     nLen = MultiByteToWideChar(CP_UTF8, NULL, strUTF8, -1, wszBuffer, nLen);
     wszBuffer[nLen] = 0;
     nLen = WideCharToMultiByte(936, NULL, wszBuffer, -1, NULL, NULL, NULL, NULL);
-    CHAR * szBuffer = new CHAR[nLen + 1];
+    CHAR *szBuffer = new CHAR[nLen + 1];
     nLen = WideCharToMultiByte(936, NULL, wszBuffer, -1, szBuffer, nLen, NULL, NULL);
     szBuffer[nLen] = 0;
     std::string s1 = szBuffer;
-    delete[]szBuffer;
-    delete[]wszBuffer;
+    delete[] szBuffer;
+    delete[] wszBuffer;
     return s1;
+}
+
+std::string ws2s(const std::wstring &s)
+{
+    int len;
+    int slength = (int)s.length() + 1;
+    len = WideCharToMultiByte(CP_ACP, 0, s.c_str(), slength, 0, 0, 0, 0);
+    char *buf = new char[len];
+    WideCharToMultiByte(CP_ACP, 0, s.c_str(), slength, buf, len, 0, 0);
+    std::string r(buf);
+    delete[] buf;
+    return r;
+}
+
+std::wstring s2ws(const std::string &s)
+{
+    int len;
+    int slength = (int)s.length() + 1;
+    len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0);
+    wchar_t *buf = new wchar_t[len];
+    MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
+    std::wstring r(buf);
+    delete[] buf;
+    return r;
+}
+
+int DetectUTF8toLocalPage(const char *strUTF8)
+{
+    return 0;
 }

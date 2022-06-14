@@ -21,5 +21,13 @@
     <ClCompile Include="src\formatConvert.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\cmdExecuteProxy.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
