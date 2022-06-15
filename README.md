@@ -21,9 +21,11 @@ To allow the simplest usage of both code, the avionic side uses the lua with log
 
 Serval Libiaries are used to collect the media metadata and convert the media into game supported format. The lib license info can be checked in the [License](#license).
 
+In-Game Preview: ![avatar](docs/sample_am_style.png)
+
 ## Install
 ### Avionics Lua Code
-1. The codes are in ```Mp3Code/``` folder. 
+1. The lua codes are in ```Mp3Code/``` folder. 
 2. Put the ```Mp3Code/Cockpit``` into ```<your mod path>/Cockpit```
 3. Config your ```device_init.lua``` to add the indicator and device
 4. Add the control commands into both ```input``` and ```commanddef```
