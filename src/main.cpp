@@ -15,7 +15,7 @@
 
 int main()
 {
-    std::cout << "OGG Music Converter V0.1.0:" << std::endl;
+    std::cout << "OGG Music Converter V0.1.2:" << std::endl;
     std::cout << "Note: Dont worry if the console export wrong text (its GB2312 Support)" << std::endl;
     std::cout << "Press Anykey to Continue/" << UTF8toANSI("按任意键继续") << std::endl;
     std::cin.get();
@@ -63,8 +63,8 @@ int main()
                 sdef_folder_path = "Output\\Sounds\\sdef\\MP3Player\\" + temp;
                 writeSdefConfig(sdef_folder_path.c_str(), &metadata_store);
                 // start using the cmd to execute the ffmpeg here
-                convert_command = "\"bin\\ffmpeg\" -i " + folder_path + temp + " -ar 48000 -vn -c:a libvorbis output/Sounds/Effects/MP3Player/";
-                convert_command = convert_command + temp.replace(temp.find(".mp3"), 4, ".ogg");
+                convert_command = "\"\"bin\\ffmpeg\" -i \"" + folder_path + temp + "\" -ar 48000 -vn -c:a libvorbis \"output/Sounds/Effects/MP3Player/";
+                convert_command = convert_command + temp.replace(temp.find(".mp3"), 4, ".ogg") + "\"\"";
                 std::cout << "Execute Command: " << convert_command << std::endl;
                 ExecuteCmd(convert_command.c_str(), strList);
                 std::cout << "\n\r converted to ogg" << std::endl;
